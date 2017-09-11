@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="120pt"
+    android:paddingBottom="2pt"
+    android:paddingLeft="15pt"
+    android:paddingRight="15pt"
+    android:paddingTop="10pt">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="14pt"
+        android:background="@color/gray" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="10pt"
+        android:layout_marginRight="15pt"
+        android:layout_marginTop="16pt"
+        android:background="@color/gray" />
+
+    <View
+        android:layout_width="77pt"
+        android:layout_height="77pt"
+        android:layout_gravity="bottom|center_horizontal"
+        android:background="@color/gray" />
+</FrameLayout>

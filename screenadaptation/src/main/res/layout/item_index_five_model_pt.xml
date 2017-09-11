@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="375pt"
+    android:layout_height="240pt"
+    android:background="@color/white"
+    android:layout_marginBottom="15pt"
+    android:orientation="vertical">
+
+    <FrameLayout
+        android:id="@+id/layout_left"
+        android:layout_width="160pt"
+        android:layout_height="240pt">
+
+        <View
+            android:layout_width="150pt"
+            android:layout_height="150pt"
+            android:layout_gravity="bottom|center_horizontal"
+            android:layout_margin="5pt"
+            android:background="@color/gray" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="14pt"
+            android:layout_marginLeft="15pt"
+            android:layout_marginRight="15pt"
+            android:layout_marginTop="10pt"
+            android:background="@color/gray" />
+
+        <View
+            android:layout_width="90pt"
+            android:layout_height="10pt"
+            android:layout_marginLeft="15pt"
+            android:layout_marginTop="32pt"
+            android:background="@color/gray"
+            android:gravity="center_vertical" />
+
+        <View
+            android:layout_width="60pt"
+            android:layout_height="26pt"
+            android:layout_marginLeft="15pt"
+            android:layout_marginRight="15pt"
+            android:layout_marginTop="45pt"
+            android:background="@color/gray" />
+    </FrameLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/gridview"
+        android:layout_width="215pt"
+        android:layout_height="240pt"
+        android:layout_gravity="right"
+        android:listSelector="@color/white" />
+
+    <View
+        android:layout_width="0.5pt"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="160pt"
+        android:background="@color/ececec" />
+
+    <View
+        android:layout_width="0.5pt"
+        android:layout_height="match_parent"
+        android:layout_gravity="right"
+        android:layout_marginRight="107.5pt"
+        android:background="@color/ececec" />
+
+    <View
+        android:layout_width="215pt"
+        android:layout_height="0.5pt"
+        android:layout_gravity="center_vertical|right"
+        android:background="@color/ececec" />
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="15pt"
+        android:textColor="@color/red" />
+
+</FrameLayout>
