@@ -3,6 +3,7 @@ package com.hjhrq991.screenadaptation.Application;
 import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.content.res.Resources;
 import android.graphics.Point;
 import android.util.TypedValue;
@@ -16,7 +17,7 @@ import android.view.WindowManager;
 
 public class MyApplication extends Application {
 
-    //绘制页面时参照的设计图宽度
+    //绘制页面时参照的设计图宽度(以竖图为基准)
     public final static float DESIGN_WIDTH = 375;
 
     @Override
@@ -24,6 +25,13 @@ public class MyApplication extends Application {
         super.onCreate();
         //如果app一启动就开始使用适配方案，请在onCreate里就先调用一次
         resetDensity(this, TypedValue.COMPLEX_UNIT_PT);
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        //屏幕发生变化时重置
+        getResources();
     }
 
     @Override
