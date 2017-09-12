@@ -1,1 +1,1 @@
-include ':screenadaptation'
+include ':screenadaptation', ':library'

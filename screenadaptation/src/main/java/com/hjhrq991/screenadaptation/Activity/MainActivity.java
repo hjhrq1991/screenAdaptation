@@ -44,8 +44,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initData() {
         List<AdapterType> list = new ArrayList<>();
-        list.add(new AdapterType("示例一", Type.MAIN_TRI));
-        list.add(new AdapterType("示例二", Type.MAIN_FIVE));
+        list.add(new AdapterType("Example 1", Type.MAIN_TRI));
+        list.add(new AdapterType("Example 2", Type.MAIN_FIVE));
         mAdapter.replaceAll(list);
     }
 

@@ -46,9 +46,9 @@ public class FiveActivity extends AppCompatActivity {
 
     private void initData() {
         List<AdapterType> list = new ArrayList<>();
-        list.add(new AdapterType("这是dp方案", Type.TYPE_TRI_DP));
-        list.add(new AdapterType("这是权重方案", Type.TYPE_TRI_WEIGHT));
-        list.add(new AdapterType("这是适配方案", Type.TYPE_TRI_PT));
+        list.add(new AdapterType("The dp way", Type.TYPE_TRI_DP));
+        list.add(new AdapterType("The weight way", Type.TYPE_TRI_WEIGHT));
+        list.add(new AdapterType("The adaptation way", Type.TYPE_TRI_PT));
         mAdapter.replaceAll(list);
     }
 
