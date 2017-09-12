@@ -21,3 +21,16 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
 }
+
+apply plugin: 'com.novoda.bintray-release'
+publish {
+    def Properties localProps = new Properties()
+    localProps.load(new FileInputStream(file('../gradle.properties')))
+
+    userOrg = localProps.USERORG
+    groupId = localProps.GROUPID
+    artifactId = localProps.ARTIFACTID
+    publishVersion = localProps.PUBLISHVERSION
+    desc = localProps.DESC
+    website = localProps.WEBSITE
+}

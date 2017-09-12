@@ -55,7 +55,6 @@ freeline/
 freeline_project_description.json
 
 .gradle
-local.properties
 .idea
 .DS_Store
 build
@@ -68,3 +67,4 @@ lint.xml
 .settings
 .classpath
 gradle
+gradle.properties
