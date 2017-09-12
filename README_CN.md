@@ -1,8 +1,6 @@
 # ScreenAdapter
-======================
 
-![图标](https://github.com/AriaLyy/DownloadUtil/blob/v_2.0/app/src/main/res/mipmap-hdpi/ic_launcher.png)</br>
-## [ENGLISH DOC](https://github.com/AriaLyy/Aria/blob/master/ENGLISH_README.md)</br>
+## [ENGLISH DOC](https://github.com/hjhrq1991/screenAdaptation/blob/master/README.md)</br>
 ScreenAdapter项目源于开发时老被设计狮吐槽没有高度还原设计稿，加上Android屏幕分辨率众多，总是需要微调或舍弃非主流分辨率的适配。ScreenAdapter由此而生，经历了多个项目的测试，适配情况基本达到理想情况。
 
 ScreenAdapter有以下特点：
