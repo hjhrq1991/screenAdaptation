@@ -6,10 +6,7 @@ import android.content.res.Resources;
 
 /**
  * @author hjhrq1991 created at 2017/9/11 14 19.
- * @Package com.hjhrq991.screenadaptation
- * @Description:
  */
-
 public class ScreenAdapterApplication extends Application {
 
     private float DESIGN_WIDTH = 375f;
@@ -39,6 +36,4 @@ public class ScreenAdapterApplication extends Application {
             mHelper.getResources(res);
         return res;
     }
-
-
 }

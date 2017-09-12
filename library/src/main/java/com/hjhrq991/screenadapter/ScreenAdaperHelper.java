@@ -11,7 +11,6 @@ import android.view.WindowManager;
 
 /**
  * @author hjhrq1991 created at 2017/9/11 14 19.
- * @Description:
  */
 public class ScreenAdaperHelper {
 
@@ -37,9 +36,7 @@ public class ScreenAdaperHelper {
     }
 
     /**
-     * @param application
      * @param DESIGN_WIDTH the width for design drawing, use dp conversion by default
-     * @return
      */
     public static ScreenAdaperHelper init(Application application, float DESIGN_WIDTH) {
         if (mHelper == null) {
@@ -77,7 +74,6 @@ public class ScreenAdaperHelper {
     }
 
     /**
-     * @param context
      * @param unit    {@link TypedValue} Not recommended COMPLEX_UNIT_PX、COMPLEX_UNIT_DIP、COMPLEX_UNIT_SP
      *                recommend COMPLEX_UNIT_PT
      */
