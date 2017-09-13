@@ -22,11 +22,14 @@ ScreenAdapter有以下特点：
 当你看到此图时，你会如何在各种分辨率下还原效果？
 ![设计图](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/design_spec.jpg) 
 
-描述|华为荣耀8|魅族MX3|魅族MX2
+![效果](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/screenadpater.gif) 
+
+适配情况：
+ |华为荣耀8|魅族MX3|魅族MX2
 ----|----|----|----
 分辨率 | 1920\*1080 | 1800\*1080 | 1280\*800
 宽高比 | 16:9 | 15:9 | 16:10
-效果图 | ![荣耀8](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/honor8_sample2.jpg) | ![mx3](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/mx3_sample2.jpg) | ![mx2](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/mx2_sample2.jpg)
+效果图 | ![荣耀8](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/honor8_sample1.jpg) | ![mx3](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/mx3_sample1.jpg) | ![mx2](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/mx2_sample1.jpg)
 
 ## 下载
 [![Download](https://api.bintray.com/packages/hjhrq1991/maven/ScreenAdapter/images/download.svg) ](https://bintray.com/hjhrq1991/maven/ScreenAdapter/_latestVersion)
@@ -198,13 +201,14 @@ compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.0'
 横竖屏切换时会以当前的屏幕宽度进行换算，如你的布局非列表或者Scrollview，建议横竖屏使用不同的layout进行适配。
 
 当前未解决问题：华为等有可动态导航栏的设备，横屏情况下，收起/展开导航栏并没有好的方式监听，且不会触发页面刷新，强行刷新UI势必浪费性能。
+当然，如你需处理该情况，可以自行在Activity监听android.id.R.content宽高的变化进行重绘ui。
 如您对此问题有好的解决方法，请留言反馈给我！谢谢！
 
 ## 其他
  有任何问题，可以在[issues](https://github.com/hjhrq1991/screenAdaptation/issues)给我留言反馈。</br>
-或其他方式联系我：
-Gmail：hjhrq1991@gmail.com
-QQ：444563258
+或其他方式联系我：</br>
+Gmail：hjhrq1991@gmail.com</br>
+QQ：444563258</br>
 
 ***
 License
