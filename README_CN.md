@@ -92,7 +92,7 @@ compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.1'
 ## 适配
 #### 布局适配
 由于本方案运行时才生效，因此建议写布局文件时优先使用dp做为单位，写完布局后使用pt/in/mm全局替换dp即可.当然如果不嫌麻烦的也可以在布局preview时可以使用模拟器设备进行预览，填写设计稿尺寸，换算好屏幕尺寸即进行预览。
-同时建议多使用FrameLayout，适当使用LinearLayout，尽量少用RelativeLayout，能更大程度减少层级。
+同时建议多使用FrameLayout或者LinearLayout，尽量少用RelativeLayout，能更大程度减少层级。
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"

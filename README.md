@@ -1,47 +1,47 @@
 # ScreenAdapter
 
-## [ENGLISH DOC](https://github.com/hjhrq1991/screenAdaptation/blob/master/README.md)</br>
-ScreenAdapter项目源于开发时老被设计狮吐槽没有高度还原设计稿，加上Android屏幕分辨率众多，总是需要微调或舍弃非主流分辨率的适配。ScreenAdapter由此而生，经历了多个项目的实践，适配情况基本达到理想情况。
-
-ScreenAdapter有以下特点：
- + 简单、方便
-   - 接入简单，极少侵入
-   - 代码、布局换算px全局生效
- + 布局更优
-   - dp可以直接替换为pt/in/mm
-   - 可直接使用设计稿标注尺寸
-   - 无须布局嵌套即可实现
- + 性能更优
-   - 无须依赖AutoLayout之类的第三方库
+## [中文文档](https://github.com/hjhrq1991/screenAdaptation/blob/master/README_CN.md)</br>
+The ScreenAdapter project comes from the developer when the designer makes fun of the lack of a highly reversion design, and the Android screen has a lot of resolution. It always needs to fine-tune or discard the non-mainstream resolution. The ScreenAdapter is born and has experienced multiple project practices, and the adaptation situation has basically achieved the ideal situation.
+   
+The ScreenAdapter has the following features:
+ + Simple and convenient
+   - access is simple, rarely accessed
+   - the code and layout are converted to the global entry
+ +Better layout
+   -dp can be replaced by pt/in/mm
+   - you can use the design draft to mark the dimensions directly
+   - no layout nesting can be implemented
+ + performance better
+   - no need to rely on third-party libraries such as AutoLayout
  
-[怎样使用ScreenAdapter?](#使用)
+[How to use the ScreenAdapter?](#Use)
 
-如果你觉得ScreenAdapter对你有帮助，您的star和issues将是对我最大支持.`^_^`
+If you feel that the ScreenAdapter is helpful to you, your star and issues will be the biggest support for me.`^_^`
 
-## 示例
-当你看到此图时，你会如何在各种分辨率下还原效果？
-![设计图](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/design_spec.jpg) 
+## Sample
+When you look at this design, how do you restore it at all resolutions?
+![design](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/design_spec.jpg) 
 
-![效果](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/screenadpater_480270.gif) 
+![effect](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/screenadpater_480270.gif) 
 
-适配情况：
+Adaptation case：
 
-描述|华为荣耀8|魅族MX3|魅族MX2
+describe|huawei honor8|meizu MX3|meizu MX2
 ----|----|----|----
-分辨率 | 1920\*1080 | 1800\*1080 | 1280\*800
-宽高比 | 16:9 | 15:9 | 16:10
-效果图 | ![荣耀8](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/honor8_sample1.jpg) | ![mx3](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/mx3_sample1.jpg) | ![mx2](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/mx2_sample1.jpg)
+resolution | 1920\*1080 | 1800\*1080 | 1280\*800
+aspect ratio | 16:9 | 15:9 | 16:10
+effect | ![honor8](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/honor8_sample1.jpg) | ![mx3](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/mx3_sample1.jpg) | ![mx2](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/mx2_sample1.jpg)
 
-## 下载
+## Download
 [![Download](https://api.bintray.com/packages/hjhrq1991/maven/ScreenAdapter/images/download.svg) ](https://bintray.com/hjhrq1991/maven/ScreenAdapter/_latestVersion)
 ```java
 compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.1'
 ```
 
 ***
-## 使用
-### 无Application
-可在AndroidManifest使用ScreenAdapterApplication
+## Use
+### No Application
+You can use ScreenAdapterApplication in AndroidManifest
 ```java
    <application
           android:name="com.hjhrq991.screenadapter.ScreenAdapterApplication">
@@ -49,16 +49,16 @@ compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.1'
       </application>
 ```
 
-### 有自定义Application
-如你的自定义Application继承Application，修改成继承ScreenAdapterApplication即可
+### Has custom Application
+If your custom Application extends Application, modify it to extend ScreenAdapterApplication
 ```java
    public class MyApplication extends ScreenAdapterApplication {
    
    }
 ```
 
-如你的自定义Application继承其他Application，可通过ScreenAdaperHelper来实现。DESIGN_WIDTH为设计稿的宽度(如果你的设计稿宽度不统一，请找你们的设计狮)，DESIGN_WIDTH的值建议使用px换算dp的结果，即px/2。
-具体实现如下：
+If your custom Application extends other Application, it can be done by ScreenAdaperHelper. DESIGN_WIDTH is the width of the design draft (if your design draft is not uniform, please find your designer), and the value of DESIGN_WIDTH is recommended to use the result of px, which is px/ 2.
+The specific code is as follows:
 ```java
    private float DESIGN_WIDTH = 375f;
    
@@ -89,10 +89,10 @@ compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.1'
        }
 ```
 
-## 适配
-#### 布局适配
-由于本方案运行时才生效，因此建议写布局文件时优先使用dp做为单位，写完布局后使用pt/in/mm全局替换dp即可.当然如果不嫌麻烦的也可以在布局preview时可以使用模拟器设备进行预览，填写设计稿尺寸，换算好屏幕尺寸即进行预览。
-同时建议多使用FrameLayout，适当使用LinearLayout，尽量少用RelativeLayout，能更大程度减少层级。
+## Adaptation
+#### Layout adaptation
+Given the runtime the scheme is valid, so suggest writing layout file is preferred to use dp as a unit, after finished the layout using pt/in/mm global replace dp. Of course, if take the trouble of can in the Android studiod preview function can be used when the simulator equipment preview, fill out the design draft size, good screen size conversion to preview.
+It is also recommended to use the FrameLayout or linear layout to minimize the use of RelativeLayout, which can reduce the hierarchy.
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -198,33 +198,33 @@ compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.1'
 </FrameLayout>
 ```
 
-#### 代码适配
-如需代码里换算px，可调用ScreenAdaperHelper的API方法:
+#### Code adaptation
+If you need to write code to convert px, you can call the ScreenAdaperHelper API method:
 ```java
 ScreenAdaperHelper.ptTopx(mContext, 210);
 ```
-当然，调用你原有的方法也是可以，本方案已全局换算。
+Of course, it's ok to call your original method, which is already global.
 
-## 适配情况
-各款设备均能高度还原设计稿效果，布局使用pt/in/mm代替dp、sp，dp、sp由于使用频率较高继续保留。
-横竖屏切换时会以当前的屏幕宽度进行换算，如你的布局非列表或者Scrollview，建议横竖屏使用不同的layout进行适配。
+## Adaptation situation
+All devices can be highly restored to the design draft effect. The layout USES pt/in/mm to replace dp and sp, but the dp and sp are retained with high frequency of use.
+The horizontal vertical screen switching will be converted to the current screen width, such as your layout non-list or Scrollview, which suggests that the horizontal vertical screen should be adapted with different layout.
 
  + v1.0.0
-   - 大部分机型适配，已适配华为、魅族、vivo、oppo、三星、一加、中兴、酷派、锤子、乐视等绝大部分机型
-   - 解决部分情况下DisplayMetrics被重置的问题
+   - most of the models have been adapted to most models such as huawei, meizu, vivo, oppo, samsung, one plus, zte, coolpad, hammer, Letv, etc
+   - solve the problem that DisplayMetrics is reset in some cases
  + v1.0.1
-   - 优化可视区宽度的获取方法
+   - optimize the access method for visual area width
  + v1.0.2
-   - 修复小米Android5.1.1系统下适配方案失效的问题
-   - 增加代码换算px工具方法
+   - fix the problem of the failure of the adaptation programme under the xiaomi android 5.1.1
+   - add code to convert px tools
    
-当前未解决问题：华为等有可动态导航栏的设备，横屏情况下，收起/展开导航栏并没有好的方式监听，且不会触发页面刷新，强行刷新UI势必浪费性能。
-当然，如你需处理该情况，可以自行在Activity监听android.id.R.content宽高的变化进行重绘ui。
-如您对此问题有好的解决方法，请留言反馈给我！谢谢！
+Current unresolved issues：For example, huawei mobile phone, in the case of horizontal screen, hide/show the navigation bar does not have a good way to monitor, and it will not trigger page refresh. Forcing the UI to refresh the UI is bound to waste performance.
+                          Of course, if you need to deal with this problem, you can redraw the UI by yourself in the Activity listening to the changes in android. Id. R.content width.
+                          If you have a good solution to this problem, please give me feedback! Thank you!
 
-## 其他
-有任何问题，可以在[issues](https://github.com/hjhrq1991/screenAdaptation/issues)给我留言反馈。</br>
-或其他方式联系我：</br>
+## Other
+If you have any questions, please give me feedback on [issues](https://github.com/hjhrq1991/screenAdaptation/issues)</br>
+Or contact me in other ways：</br>
 Gmail：hjhrq1991@gmail.com</br>
 QQ：444563258</br>
 
