@@ -27,7 +27,7 @@ ScreenAdapter有以下特点：
 适配情况：
 
 描述|华为荣耀8|魅族MX3|魅族MX2
-----|----|----|----
+:----|:----:|:----:|:----:
 分辨率 | 1920\*1080 | 1800\*1080 | 1280\*800
 宽高比 | 16:9 | 15:9 | 16:10
 效果图 | ![荣耀8](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/honor8_sample1.jpg) | ![mx3](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/mx3_sample1.jpg) | ![mx2](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/mx2_sample1.jpg)
@@ -35,7 +35,7 @@ ScreenAdapter有以下特点：
 ## 下载
 [![Download](https://api.bintray.com/packages/hjhrq1991/maven/ScreenAdapter/images/download.svg) ](https://bintray.com/hjhrq1991/maven/ScreenAdapter/_latestVersion)
 ```java
-compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.1'
+compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.2'
 ```
 
 ***

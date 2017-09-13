@@ -26,8 +26,8 @@ When you look at this design, how do you restore it at all resolutions?
 
 Adaptation case：
 
-describe|huawei honor8|meizu MX3|meizu MX2
-----|----|----|----
+Describe|Huawei Honor8|Meizu MX3|Meizu MX2
+:----|:----:|:----:|:----:
 resolution | 1920\*1080 | 1800\*1080 | 1280\*800
 aspect ratio | 16:9 | 15:9 | 16:10
 effect | ![honor8](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/honor8_sample1.jpg) | ![mx3](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/mx3_sample1.jpg) | ![mx2](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/mx2_sample1.jpg)
@@ -35,7 +35,7 @@ effect | ![honor8](https://github.com/hjhrq1991/screenAdaptation/blob/master/scr
 ## Download
 [![Download](https://api.bintray.com/packages/hjhrq1991/maven/ScreenAdapter/images/download.svg) ](https://bintray.com/hjhrq1991/maven/ScreenAdapter/_latestVersion)
 ```java
-compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.1'
+compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.2'
 ```
 
 ***
