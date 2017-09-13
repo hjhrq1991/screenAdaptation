@@ -25,6 +25,7 @@ ScreenAdapter有以下特点：
 ![效果](https://github.com/hjhrq1991/screenAdaptation/blob/master/screenshot/screenadpater_480270.gif) 
 
 适配情况：
+
 描述|华为荣耀8|魅族MX3|魅族MX2
 ----|----|----|----
 分辨率 | 1920\*1080 | 1800\*1080 | 1280\*800
