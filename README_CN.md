@@ -1,7 +1,7 @@
 # ScreenAdapter
 
 ## [ENGLISH DOC](https://github.com/hjhrq1991/screenAdaptation/blob/master/README.md)</br>
-ScreenAdapter项目源于开发时老被设计狮吐槽没有高度还原设计稿，加上Android屏幕分辨率众多，总是需要微调或舍弃非主流分辨率的适配。ScreenAdapter由此而生，经历了多个项目的测试，适配情况基本达到理想情况。
+ScreenAdapter项目源于开发时老被设计狮吐槽没有高度还原设计稿，加上Android屏幕分辨率众多，总是需要微调或舍弃非主流分辨率的适配。ScreenAdapter由此而生，经历了多个项目的实践，适配情况基本达到理想情况。
 
 ScreenAdapter有以下特点：
  + 简单、方便
@@ -35,7 +35,7 @@ ScreenAdapter有以下特点：
 ## 下载
 [![Download](https://api.bintray.com/packages/hjhrq1991/maven/ScreenAdapter/images/download.svg) ](https://bintray.com/hjhrq1991/maven/ScreenAdapter/_latestVersion)
 ```java
-compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.0'
+compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.1'
 ```
 
 ***
@@ -90,7 +90,7 @@ compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.0'
 ```
 
 ## 适配
-由于本方案运行时才生效，因此建议写布局文件时优先使用dp做为单位，写完布局后使用pt/in/mm全局替换dp即可。
+由于本方案运行时才生效，因此建议写布局文件时优先使用dp做为单位，写完布局后使用pt/in/mm全局替换dp即可.当然如果不嫌麻烦的也可以在布局preview时可以使用模拟器设备进行预览，填写设计稿尺寸，换算好屏幕尺寸即进行预览。
 同时建议多使用FrameLayout，适当使用LinearLayout，尽量少用RelativeLayout，能更大程度减少层级。
 ```xml
 <?xml version="1.0" encoding="utf-8"?>

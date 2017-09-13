@@ -4,10 +4,9 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.res.Resources;
-import android.graphics.Point;
 import android.preference.PreferenceManager;
+import android.util.DisplayMetrics;
 import android.util.TypedValue;
-import android.view.WindowManager;
 
 /**
  * @author hjhrq1991 created at 2017/9/11 14 19.
@@ -24,7 +23,6 @@ public class ScreenAdaperHelper {
     static ScreenAdaperHelper mHelper;
     private Application application;
     private SharedPreferences mSharedPreferences;
-    private Point size;
 
     public static ScreenAdaperHelper init(Application application) {
         if (mHelper == null) {
@@ -53,7 +51,6 @@ public class ScreenAdaperHelper {
         this.DESIGN_WIDTH = DESIGN_WIDTH;
         this.application = application;
         this.mSharedPreferences = PreferenceManager.getDefaultSharedPreferences(application);
-        this.size = new Point();
         //If the app starts using the adaptation plan on startup, it needs to be called once at initialization time
         setDensity(application, TypedValue.COMPLEX_UNIT_PT);
     }
@@ -74,22 +71,22 @@ public class ScreenAdaperHelper {
     }
 
     /**
-     * @param unit    {@link TypedValue} Not recommended COMPLEX_UNIT_PX、COMPLEX_UNIT_DIP、COMPLEX_UNIT_SP
-     *                recommend COMPLEX_UNIT_PT
+     * @param unit {@link TypedValue} Not recommended COMPLEX_UNIT_PX、COMPLEX_UNIT_DIP、COMPLEX_UNIT_SP
+     *             recommend COMPLEX_UNIT_PT
      */
     private void setDensity(Context context, int unit) {
         if (context != null) {
             float xdpi = 0f;
-            ((WindowManager) context.getSystemService(Context.WINDOW_SERVICE)).getDefaultDisplay().getSize(size);
+            DisplayMetrics dm = context.getResources().getDisplayMetrics();
             switch (unit) {
                 case TypedValue.COMPLEX_UNIT_PT:
-                    xdpi = size.x / DESIGN_WIDTH * 72;
+                    xdpi = dm.widthPixels / DESIGN_WIDTH * 72;
                     break;
                 case TypedValue.COMPLEX_UNIT_IN:
-                    xdpi = size.x / DESIGN_WIDTH;
+                    xdpi = dm.widthPixels / DESIGN_WIDTH;
                     break;
                 case TypedValue.COMPLEX_UNIT_MM:
-                    xdpi = size.x / DESIGN_WIDTH * 25.4f;
+                    xdpi = dm.widthPixels / DESIGN_WIDTH * 25.4f;
                     break;
             }
             SharedPreferences.Editor editor = mSharedPreferences.edit();
