@@ -8,6 +8,8 @@ import android.preference.PreferenceManager;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
 
+import java.lang.reflect.Field;
+
 /**
  * @author hjhrq1991 created at 2017/9/11 14 19.
  */
@@ -64,8 +66,8 @@ public class ScreenAdaperHelper {
         if (application != null) {
             //To solve the problem that the DisplayMetrics attribute value is restored in some cases
             float xdpi = mSharedPreferences.getFloat("xdpi", 0f);
-            if (xdpi > 0f && res.getDisplayMetrics().xdpi != xdpi)
-                res.getDisplayMetrics().xdpi = xdpi;
+            if (xdpi > 0f && getMetrics(res).xdpi != xdpi)
+                getMetrics(res).xdpi = xdpi;
             else if (xdpi <= 0f) setDensity(application, TypedValue.COMPLEX_UNIT_PT);
         }
     }
@@ -76,23 +78,63 @@ public class ScreenAdaperHelper {
      */
     private void setDensity(Context context, int unit) {
         if (context != null) {
-            float xdpi = 0f;
-            DisplayMetrics dm = context.getResources().getDisplayMetrics();
-            switch (unit) {
-                case TypedValue.COMPLEX_UNIT_PT:
-                    xdpi = dm.widthPixels / DESIGN_WIDTH * 72;
-                    break;
-                case TypedValue.COMPLEX_UNIT_IN:
-                    xdpi = dm.widthPixels / DESIGN_WIDTH;
-                    break;
-                case TypedValue.COMPLEX_UNIT_MM:
-                    xdpi = dm.widthPixels / DESIGN_WIDTH * 25.4f;
-                    break;
+            try {
+                float xdpi = 0f;
+                DisplayMetrics dm = getMetrics(context.getResources());
+                switch (unit) {
+                    case TypedValue.COMPLEX_UNIT_PT:
+                        xdpi = dm.widthPixels / DESIGN_WIDTH * 72;
+                        break;
+                    case TypedValue.COMPLEX_UNIT_IN:
+                        xdpi = dm.widthPixels / DESIGN_WIDTH;
+                        break;
+                    case TypedValue.COMPLEX_UNIT_MM:
+                        xdpi = dm.widthPixels / DESIGN_WIDTH * 25.4f;
+                        break;
+                }
+                SharedPreferences.Editor editor = mSharedPreferences.edit();
+                editor.putFloat("xdpi", xdpi);
+                editor.apply();
+                dm.xdpi = xdpi;
+            } catch (Exception e) {
             }
-            SharedPreferences.Editor editor = mSharedPreferences.edit();
-            editor.putFloat("xdpi", xdpi);
-            editor.apply();
-            context.getResources().getDisplayMetrics().xdpi = xdpi;
         }
+    }
+
+    /**
+     * To solve some devices use Method "resources.getDisplayMetrics()" and set xdpi no work
+     */
+    private static DisplayMetrics getMetrics(Resources res) {
+        DisplayMetrics dm = null;
+        if (res.getClass().getSimpleName().equals("MiuiResources") || res.getClass().getSimpleName().equals("XResources")) {
+            try {
+                Field field = Resources.class.getDeclaredField("mTmpMetrics");
+                field.setAccessible(true);
+                dm = (DisplayMetrics) field.get(res);
+            } catch (Exception e) {
+                dm = null;
+            }
+        }
+        return dm != null ? dm : res.getDisplayMetrics();
+    }
+
+    public static int spTopx(Context context, float sp) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, getMetrics(context.getResources()));
+    }
+
+    public static int dpTopx(Context context, float dip) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, getMetrics(context.getResources()));
+    }
+
+    public static int ptTopx(Context context, float pt) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PT, pt, getMetrics(context.getResources()));
+    }
+
+    public static int inTopx(Context context, float in) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_IN, in, getMetrics(context.getResources()));
+    }
+
+    public static int mmTopx(Context context, float mm) {
+        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_MM, mm, getMetrics(context.getResources()));
     }
 }

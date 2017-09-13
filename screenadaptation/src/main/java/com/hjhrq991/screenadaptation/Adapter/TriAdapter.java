@@ -7,6 +7,7 @@ import android.view.View;
 
 import com.hjhrq991.screenadaptation.Model.AdapterType;
 import com.hjhrq991.screenadaptation.R;
+import com.hjhrq991.screenadapter.ScreenAdaperHelper;
 
 /**
  * @author hjhrq1991 created at 2017/9/11 14 48.
@@ -56,6 +57,11 @@ public class TriAdapter extends SimplerRecyclerViewAdapter<AdapterType> {
         BaseHolder mHolder = (BaseHolder) holder;
         String title = getItem(position).getTitle();
         mHolder.mTitleView.setText(!TextUtils.isEmpty(title) ? title : "");
+        if (getItemViewType(position) == Type.TYPE_TRI_PT) {
+            mHolder.mTitleView.getLayoutParams().height = ScreenAdaperHelper.ptTopx(mContext, 210);
+        } else {
+            mHolder.mTitleView.getLayoutParams().height = ScreenAdaperHelper.dpTopx(mContext, 210);
+        }
         return holder;
     }
 

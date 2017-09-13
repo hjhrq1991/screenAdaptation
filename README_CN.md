@@ -90,6 +90,7 @@ compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.1'
 ```
 
 ## 适配
+#### 布局适配
 由于本方案运行时才生效，因此建议写布局文件时优先使用dp做为单位，写完布局后使用pt/in/mm全局替换dp即可.当然如果不嫌麻烦的也可以在布局preview时可以使用模拟器设备进行预览，填写设计稿尺寸，换算好屏幕尺寸即进行预览。
 同时建议多使用FrameLayout，适当使用LinearLayout，尽量少用RelativeLayout，能更大程度减少层级。
 ```xml
@@ -197,16 +198,32 @@ compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.1'
 </FrameLayout>
 ```
 
+#### 代码适配
+如需代码里换算px，可调用ScreenAdaperHelper的API方法:
+```java
+ScreenAdaperHelper.ptTopx(mContext, 210);
+```
+当然，调用你原有的方法也是可以，本方案已全局换算。
+
 ## 适配情况
 各款设备均能高度还原设计稿效果，布局使用pt/in/mm代替dp、sp，dp、sp由于使用频率较高继续保留。
 横竖屏切换时会以当前的屏幕宽度进行换算，如你的布局非列表或者Scrollview，建议横竖屏使用不同的layout进行适配。
 
+ + v1.0.0
+   - 大部分机型适配，已适配华为、魅族、vivo、oppo、三星、一加、中兴、酷派、锤子、乐视等绝大部分机型
+   - 解决部分情况下DisplayMetrics被重置的问题
+ + v1.0.1
+   - 优化可视区宽度的获取方法
+ + v1.0.2
+   - 修复小米Android5.1.1系统下适配方案失效的问题
+   - 增加代码换算px工具方法
+   
 当前未解决问题：华为等有可动态导航栏的设备，横屏情况下，收起/展开导航栏并没有好的方式监听，且不会触发页面刷新，强行刷新UI势必浪费性能。
 当然，如你需处理该情况，可以自行在Activity监听android.id.R.content宽高的变化进行重绘ui。
 如您对此问题有好的解决方法，请留言反馈给我！谢谢！
 
 ## 其他
- 有任何问题，可以在[issues](https://github.com/hjhrq1991/screenAdaptation/issues)给我留言反馈。</br>
+有任何问题，可以在[issues](https://github.com/hjhrq1991/screenAdaptation/issues)给我留言反馈。</br>
 或其他方式联系我：</br>
 Gmail：hjhrq1991@gmail.com</br>
 QQ：444563258</br>
