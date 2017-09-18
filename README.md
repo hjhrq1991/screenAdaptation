@@ -8,7 +8,7 @@ The ScreenAdapter has the following features:
    - access is simple, rarely accessed
    - the code and layout are converted to the global entry
  + Better layout
-   -dp can be replaced by pt/in/mm
+   - dp can be replaced by pt/in/mm
    - you can use the design draft to mark the dimensions directly
    - no layout nesting can be implemented
  + performance better
