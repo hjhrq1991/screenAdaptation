@@ -35,7 +35,7 @@ effect | ![honor8](https://github.com/hjhrq1991/screenAdaptation/blob/master/scr
 ## Download
 [![Download](https://api.bintray.com/packages/hjhrq1991/maven/ScreenAdapter/images/download.svg) ](https://bintray.com/hjhrq1991/maven/ScreenAdapter/_latestVersion)
 ```java
-compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.2'
+compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.3'
 ```
 
 ***
@@ -60,33 +60,36 @@ If your custom Application extends Application, modify it to extend ScreenAdapte
 If your custom Application extends other Application, it can be done by ScreenAdaperHelper. DESIGN_WIDTH is the width of the design draft (if your design draft is not uniform, please find your designer), and the value of DESIGN_WIDTH is recommended to use the result of px, which is px/ 2.
 The specific code is as follows:
 ```java
-   private float DESIGN_WIDTH = 375f;
-   
-       private ScreenAdaperHelper mHelper;
-   
-       @Override
-       public void onCreate() {
-           super.onCreate();
-           //init helper with default with.
-   //        mHelper = ScreenAdaperHelper.init(this);
-           //init helper with the width for design drawing
-           mHelper = ScreenAdaperHelper.init(this, DESIGN_WIDTH);
-       }
-   
-       @Override
-       public void onConfigurationChanged(Configuration newConfig) {
-           super.onConfigurationChanged(newConfig);
-           mHelper.onConfigurationChanged();
-       }
-   
-       @Override
-       public Resources getResources() {
-           Resources res = super.getResources();
-           //Will call before init
-           if (mHelper != null)
-               mHelper.getResources(res);
-           return res;
-       }
+    private float DESIGN_WIDTH = 375f;
+    private ScreenAdaperHelper mHelper;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        //init helper with the width for design drawing
+        mHelper = new ScreenAdaperHelper.Builder()
+                .setApplication(this)
+                .setDesign_with(DESIGN_WIDTH)
+                .setUnit(TypedValue.COMPLEX_UNIT_PT)
+                .setEnableDp(true)
+                .setEnableOtherResources(true)
+                .build();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mHelper.onConfigurationChanged();
+    }
+
+    @Override
+    public Resources getResources() {
+        Resources res = super.getResources();
+        //Will call before init
+        if (mHelper != null)
+            mHelper.getResources(res);
+        return res;
+    }
 ```
 
 ## Adaptation
@@ -217,6 +220,10 @@ The horizontal vertical screen switching will be converted to the current screen
  + v1.0.2
    - fix the problem of the failure of the adaptation programme under the xiaomi android 5.1.1
    - add code to convert px tools
+ + v1.0.3
+   - Optimize the ScreenAdapterHelper initialization method
+   - Increase dp/dip conversion
+   - Add the enable switch for MIUI/XPOSE
    
 Current unresolved issues：For example, huawei mobile phone, in the case of horizontal screen, hide/show the navigation bar does not have a good way to monitor, and it will not trigger page refresh. Forcing the UI to refresh the UI is bound to waste performance.
                           Of course, if you need to deal with this problem, you can redraw the UI by yourself in the Activity listening to the changes in android. Id. R.content width.

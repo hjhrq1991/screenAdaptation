@@ -35,7 +35,7 @@ ScreenAdapter有以下特点：
 ## 下载
 [![Download](https://api.bintray.com/packages/hjhrq1991/maven/ScreenAdapter/images/download.svg) ](https://bintray.com/hjhrq1991/maven/ScreenAdapter/_latestVersion)
 ```java
-compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.2'
+compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.3'
 ```
 
 ***
@@ -60,33 +60,36 @@ compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.2'
 如你的自定义Application继承其他Application，可通过ScreenAdaperHelper来实现。DESIGN_WIDTH为设计稿的宽度(如果你的设计稿宽度不统一，请找你们的设计狮)，DESIGN_WIDTH的值建议使用px换算dp的结果，即px/2。
 具体实现如下：
 ```java
-   private float DESIGN_WIDTH = 375f;
-   
-       private ScreenAdaperHelper mHelper;
-   
-       @Override
-       public void onCreate() {
-           super.onCreate();
-           //init helper with default with.
-   //        mHelper = ScreenAdaperHelper.init(this);
-           //init helper with the width for design drawing
-           mHelper = ScreenAdaperHelper.init(this, DESIGN_WIDTH);
-       }
-   
-       @Override
-       public void onConfigurationChanged(Configuration newConfig) {
-           super.onConfigurationChanged(newConfig);
-           mHelper.onConfigurationChanged();
-       }
-   
-       @Override
-       public Resources getResources() {
-           Resources res = super.getResources();
-           //Will call before init
-           if (mHelper != null)
-               mHelper.getResources(res);
-           return res;
-       }
+    private float DESIGN_WIDTH = 375f;
+    private ScreenAdaperHelper mHelper;
+
+    @Override
+    public void onCreate() {
+        super.onCreate();
+        //init helper with the width for design drawing
+        mHelper = new ScreenAdaperHelper.Builder()
+                .setApplication(this)
+                .setDesign_with(DESIGN_WIDTH)
+                .setUnit(TypedValue.COMPLEX_UNIT_PT)
+                .setEnableDp(true)
+                .setEnableOtherResources(true)
+                .build();
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mHelper.onConfigurationChanged();
+    }
+
+    @Override
+    public Resources getResources() {
+        Resources res = super.getResources();
+        //Will call before init
+        if (mHelper != null)
+            mHelper.getResources(res);
+        return res;
+    }
 ```
 
 ## 适配
@@ -217,6 +220,10 @@ ScreenAdaperHelper.ptTopx(mContext, 210);
  + v1.0.2
    - 修复小米Android5.1.1系统下适配方案失效的问题
    - 增加代码换算px工具方法
+ + v1.0.3
+   - 优化ScreenAdapterHelper初始化方法
+   - 增加dp/dip的转换
+   - 增加MIUI/XPOSE的启用开关
    
 当前未解决问题：华为等有可动态导航栏的设备，横屏情况下，收起/展开导航栏并没有好的方式监听，且不会触发页面刷新，强行刷新UI势必浪费性能。
 当然，如你需处理该情况，可以自行在Activity监听android.id.R.content宽高的变化进行重绘ui。

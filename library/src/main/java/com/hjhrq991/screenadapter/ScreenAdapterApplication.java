@@ -3,6 +3,7 @@ package com.hjhrq991.screenadapter;
 import android.app.Application;
 import android.content.res.Configuration;
 import android.content.res.Resources;
+import android.util.TypedValue;
 
 /**
  * @author hjhrq1991 created at 2017/9/11 14 19.
@@ -16,10 +17,14 @@ public class ScreenAdapterApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        //init helper with default with.
-//        mHelper = ScreenAdaperHelper.init(this);
         //init helper with the width for design drawing
-        mHelper = ScreenAdaperHelper.init(this, DESIGN_WIDTH);
+        mHelper = new ScreenAdaperHelper.Builder()
+                .setApplication(this)
+                .setDesign_with(DESIGN_WIDTH)
+                .setUnit(TypedValue.COMPLEX_UNIT_PT)
+                .setEnableDp(false)
+                .setEnableOtherResources(true)
+                .build();
     }
 
     @Override
