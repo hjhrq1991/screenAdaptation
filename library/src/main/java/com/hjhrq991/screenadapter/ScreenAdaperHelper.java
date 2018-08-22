@@ -83,7 +83,19 @@ public class ScreenAdaperHelper {
                 } else {
                     getMetrics(res).xdpi = xdpi;
                 }
-            } else if (xdpi <= 0f) setDensity(application, unit);
+            } else if (xdpi <= 0f) setDensity(res, unit);
+        }
+    }
+
+
+    private void setDensity(Context context, int unit) {
+        if (context != null) {
+            try {
+                Resources res = context.getResources();
+                setDensity(res, unit);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -91,14 +103,13 @@ public class ScreenAdaperHelper {
      * @param unit {@link TypedValue} Not recommended COMPLEX_UNIT_PX、COMPLEX_UNIT_DIP、COMPLEX_UNIT_SP
      *             recommend COMPLEX_UNIT_PT
      */
-    private void setDensity(Context context, int unit) {
-        if (context != null) {
+    private void setDensity(Resources res, int unit) {
+        if (res != null) {
             try {
-                Resources res = context.getResources();
                 if ((res.getClass().getSimpleName().contains("MiuiResources") || res.getClass().getSimpleName().contains("XResources")) && !enableOtherResources)
                     return;
                 float xdpi = 0f;
-                DisplayMetrics dm = getMetrics(context.getResources());
+                DisplayMetrics dm = getMetrics(res);
                 if (dm == null) return;
                 switch (unit) {
                     case TypedValue.COMPLEX_UNIT_PT:
@@ -132,7 +143,6 @@ public class ScreenAdaperHelper {
     /**
      * To solve some devices use Method "resources.getDisplayMetrics()" and set xdpi no work
      */
-
     private static DisplayMetrics getMetrics(Resources res) {
         DisplayMetrics dm = null;
         if (res.getClass().getSimpleName().contains("MiuiResources") || res.getClass().getSimpleName().contains("XResources")) {

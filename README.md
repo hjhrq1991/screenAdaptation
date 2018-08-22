@@ -35,7 +35,7 @@ effect | ![honor8](https://github.com/hjhrq1991/screenAdaptation/blob/master/scr
 ## Download
 [![Download](https://api.bintray.com/packages/hjhrq1991/maven/ScreenAdapter/images/download.svg) ](https://bintray.com/hjhrq1991/maven/ScreenAdapter/_latestVersion)
 ```java
-compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.3'
+compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.4'
 ```
 
 ***
@@ -213,17 +213,19 @@ All devices can be highly restored to the design draft effect. The layout USES p
 The horizontal vertical screen switching will be converted to the current screen width, such as your layout non-list or Scrollview, which suggests that the horizontal vertical screen should be adapted with different layout.
 
  + v1.0.0
-   - most of the models have been adapted to most models such as huawei, meizu, vivo, oppo, samsung, one plus, zte, coolpad, hammer, Letv, etc
-   - solve the problem that DisplayMetrics is reset in some cases
+   - Most of the models have been adapted to most models such as huawei, meizu, vivo, oppo, samsung, one plus, zte, coolpad, hammer, Letv, etc
+   - Solve the problem that DisplayMetrics is reset in some cases
  + v1.0.1
-   - optimize the access method for visual area width
+   - Optimize the access method for visual area width
  + v1.0.2
-   - fix the problem of the failure of the adaptation programme under the xiaomi android 5.1.1
-   - add code to convert px tools
+   - Fix the problem of the failure of the adaptation programme under the xiaomi android 5.1.1
+   - Add code to convert px tools
  + v1.0.3
    - Optimize the ScreenAdapterHelper initialization method
    - Increase dp/dip conversion
    - Add the enable switch for MIUI/XPOSE
+ + v1.0.4
+   - Solve the recursive call problem for xiaomi 4C、Note PRO、4S(Android 7.0)
    
 Current unresolved issues：For example, huawei mobile phone, in the case of horizontal screen, hide/show the navigation bar does not have a good way to monitor, and it will not trigger page refresh. Forcing the UI to refresh the UI is bound to waste performance.
                           Of course, if you need to deal with this problem, you can redraw the UI by yourself in the Activity listening to the changes in android. Id. R.content width.

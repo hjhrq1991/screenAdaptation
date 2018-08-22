@@ -35,7 +35,7 @@ ScreenAdapter有以下特点：
 ## 下载
 [![Download](https://api.bintray.com/packages/hjhrq1991/maven/ScreenAdapter/images/download.svg) ](https://bintray.com/hjhrq1991/maven/ScreenAdapter/_latestVersion)
 ```java
-compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.3'
+compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.4'
 ```
 
 ***
@@ -224,6 +224,8 @@ ScreenAdaperHelper.ptTopx(mContext, 210);
    - 优化ScreenAdapterHelper初始化方法
    - 增加dp/dip的转换
    - 增加MIUI/XPOSE的启用开关
+ + v1.0.4
+   - 修复小米4C、NOTE PRO 、4S（Android 7.0）可能会出现递归调用的问题
    
 当前未解决问题：华为等有可动态导航栏的设备，横屏情况下，收起/展开导航栏并没有好的方式监听，且不会触发页面刷新，强行刷新UI势必浪费性能。
 当然，如你需处理该情况，可以自行在Activity监听android.id.R.content宽高的变化进行重绘ui。
