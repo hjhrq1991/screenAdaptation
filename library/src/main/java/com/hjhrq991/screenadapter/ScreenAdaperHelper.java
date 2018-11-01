@@ -157,24 +157,24 @@ public class ScreenAdaperHelper {
         return dm != null ? dm : res.getDisplayMetrics();
     }
 
-    public static int spTopx(Context context, float sp) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, getMetrics(context.getResources()));
+    public static float spTopx(Context context, float sp) {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_SP, sp, getMetrics(context.getResources()));
     }
 
-    public static int dpTopx(Context context, float dip) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, getMetrics(context.getResources()));
+    public static float dpTopx(Context context, float dip) {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dip, getMetrics(context.getResources()));
     }
 
-    public static int ptTopx(Context context, float pt) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PT, pt, getMetrics(context.getResources()));
+    public static float ptTopx(Context context, float pt) {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_PT, pt, getMetrics(context.getResources()));
     }
 
-    public static int inTopx(Context context, float in) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_IN, in, getMetrics(context.getResources()));
+    public static float inTopx(Context context, float in) {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_IN, in, getMetrics(context.getResources()));
     }
 
-    public static int mmTopx(Context context, float mm) {
-        return (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_MM, mm, getMetrics(context.getResources()));
+    public static float mmTopx(Context context, float mm) {
+        return TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_MM, mm, getMetrics(context.getResources()));
     }
 
     public static class Builder {

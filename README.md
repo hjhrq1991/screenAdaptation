@@ -35,7 +35,7 @@ effect | ![honor8](https://github.com/hjhrq1991/screenAdaptation/blob/master/scr
 ## Download
 [![Download](https://api.bintray.com/packages/hjhrq1991/maven/ScreenAdapter/images/download.svg) ](https://bintray.com/hjhrq1991/maven/ScreenAdapter/_latestVersion)
 ```java
-compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.4'
+compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.5'
 ```
 
 ***

@@ -58,9 +58,9 @@ public class TriAdapter extends SimplerRecyclerViewAdapter<AdapterType> {
         String title = getItem(position).getTitle();
         mHolder.mTitleView.setText(!TextUtils.isEmpty(title) ? title : "");
         if (getItemViewType(position) == Type.TYPE_TRI_PT) {
-            mHolder.mTitleView.getLayoutParams().height = ScreenAdaperHelper.ptTopx(mContext, 210);
+            mHolder.mTitleView.getLayoutParams().height = (int) ScreenAdaperHelper.ptTopx(mContext, 210f);
         } else {
-            mHolder.mTitleView.getLayoutParams().height = ScreenAdaperHelper.dpTopx(mContext, 210);
+            mHolder.mTitleView.getLayoutParams().height = (int) ScreenAdaperHelper.dpTopx(mContext, 210f);
         }
         return holder;
     }

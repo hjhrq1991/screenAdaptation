@@ -35,7 +35,7 @@ ScreenAdapter有以下特点：
 ## 下载
 [![Download](https://api.bintray.com/packages/hjhrq1991/maven/ScreenAdapter/images/download.svg) ](https://bintray.com/hjhrq1991/maven/ScreenAdapter/_latestVersion)
 ```java
-compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.4'
+compile 'com.hjhrq991.screenadapter:ScreenAdapter:1.0.5'
 ```
 
 ***
